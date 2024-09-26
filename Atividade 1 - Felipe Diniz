@@ -1,0 +1,199 @@
+1)
+#include <stdio.h>
+
+int main() {
+float nota;
+
+    printf("Digite a nota: ");
+    scanf("%f", &nota);
+
+    if (nota > 5) {
+        printf("Aprovado\n");
+    } else {
+        printf("Reprovado\n");
+    }
+    return 0;
+}
+
+2)
+#include <stdio.h>
+int main() {
+int numero;
+
+    printf("Digite um número: ");
+    scanf("%d", &numero);
+
+    if (numero % 2 == 0) {
+        printf("O número é par\n");
+    } else {
+        printf("O número é ímpar\n");
+    }
+    return 0;
+}
+
+3)
+#include <stdio.h>
+
+int main() {
+float num1, num2;
+char operador;
+
+
+    printf("Digite o primeiro número: ");
+    scanf("%f", &num1);
+    printf("Digite o segundo número: ");
+
+    scanf("%f", &num2);
+    printf("Digite o operador (+, -, *, /): ");
+    scanf(" %c", &operador); // Note o espaço antes de %c para ignorar espaços
+
+    switch (operador) {
+        case '+':
+            printf("Resultado: %.2f\n", num1 + num2);
+            break;
+        case '-':
+
+            printf("Resultado: %.2f\n", num1 - num2);
+            break;
+        case '*':
+
+            printf("Resultado: %.2f\n", num1 * num2);
+            break;
+        case '/':
+
+            if (num2 != 0) {
+                printf("Resultado: %.2f\n", num1 / num2);
+            } else {
+                printf("Erro: Divisão por zero\n");
+            }
+            break;
+        default:
+            printf("Operador inválido\n");
+    }
+    return 0;
+}
+
+4)
+#include <stdio.h>
+
+int main() {
+int numeros[4];
+int maior, menor;
+
+    for (int i = 0; i < 4; i++) {
+        printf("Digite o número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+    }
+
+    maior = menor = numeros[0];
+
+    for (int i = 1; i < 4; i++) {
+        if (numeros[i] > maior) {
+            maior = numeros[i];
+        }
+        if (numeros[i] < menor) {
+            menor = numeros[i];
+        }
+    }
+
+    printf("Maior número: %d\n", maior);
+    printf("Menor número: %d\n", menor);
+
+    return 0;
+}
+
+5)
+#include <stdio.h>
+
+int main() {
+float nota1, nota2, nova_nota, media;
+
+    printf("Digite a primeira nota: ");
+    scanf("%f", &nota1);
+    printf("Digite a segunda nota: ");
+    scanf("%f", &nota2);
+    
+media = (nota1 + nota2) / 2;
+
+    if (media >= 5) {
+        printf("Aprovado\n");
+    } else {
+        printf("Reprovado. Digite uma nova nota: ");
+        scanf("%f", &nova_nota);
+
+        // Retira a menor nota
+        if (nota1 < nota2) {
+            media = (nota2 + nova_nota) / 2;
+        } else {
+            media = (nota1 + nova_nota) / 2;
+        }
+
+        if (media >= 5) {
+            printf("Aprovado\n");
+        } else {
+            printf("Reprovado\n");
+        }
+    }
+    return 0;
+}
+
+6)
+#include <stdio.h>
+
+int main() {
+double salario, imposto, desconto, liquido;
+
+    printf("Digite seu salário: ");
+    scanf("%lf", &salario);
+
+    if (salario < 1000) {
+
+        imposto = 0;
+
+    } else if (salario <= 2000) {
+        imposto = salario * 0.07;
+    } else if (salario <= 3000) {
+        imposto = salario * 0.15;
+    } else if (salario <= 4000) {
+        imposto = salario * 0.22;
+    } else {
+        imposto = salario * 0.29;
+    }
+    desconto = imposto;
+    liquido = salario - desconto;
+
+    printf("Valor do imposto: %.2f\n", imposto);
+    printf("Valor descontado: %.2f\n", desconto);
+    printf("Valor líquido: %.2f\n", liquido);
+
+    return 0;
+}
+
+7)
+#include <stdio.h>
+
+int main() {
+double salario;
+float nota;
+
+    printf("Digite seu salário: ");
+    scanf("%lf", &salario);
+    printf("Digite uma nota entre 0 e 10: ");
+    scanf("%f", &nota);
+
+    if (nota <= 2) {
+        // Salário permanece o mesmo
+    } else if (nota <= 4) {
+        salario *= 1.05; // Aumento de 5%
+    } else if (nota <= 6) {
+        salario *= 1.10; // Aumento de 10%
+    } else if (nota <= 8) {
+        salario *= 1.15; // Aumento de 15%
+    } else {
+        salario *= 1.20; // Aumento de 20%
+    }
+    printf("Salário original: %.2f\n", salario / (1 + (nota > 2 ? 0.05 : 0)));
+    printf("Salário com aumento: %.2f\n", salario);
+
+    return 0;
+}
